@@ -1,4 +1,5 @@
 PORT ?= 8000
+HOST ?= localhost
 PIDFILE := .server.pid
 FRONTEND := frontend
 
@@ -6,10 +7,11 @@ FRONTEND := frontend
 
 up:
 	@if [ -f $(PIDFILE) ] && kill -0 $$(cat $(PIDFILE)) 2>/dev/null; then \
-		echo "Already running on http://127.0.0.1:$(PORT) (pid $$(cat $(PIDFILE)))"; \
+		echo "Already running on http://$(HOST):$(PORT) (pid $$(cat $(PIDFILE)))"; \
 	else \
-		cd $(FRONTEND) && python3 -m http.server $(PORT) --bind 127.0.0.1 >/dev/null 2>&1 & echo $$! > ../$(PIDFILE); \
-		echo "Tiger Hacks → http://127.0.0.1:$(PORT)"; \
+		python3 -m http.server $(PORT) --bind $(HOST) --directory $(FRONTEND) >/dev/null 2>&1 & \
+		echo $$! > $(PIDFILE); \
+		echo "Tiger Hacks → http://$(HOST):$(PORT)"; \
 	fi
 
 down:
