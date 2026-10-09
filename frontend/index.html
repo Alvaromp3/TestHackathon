@@ -136,6 +136,32 @@
       outline-offset: 3px;
     }
 
+    .signature-button {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%);
+      width: 92px;
+      height: 92px;
+      border: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--flame), var(--ember));
+      color: var(--white);
+      font-family: "Big Shoulders Display", sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      box-shadow: 0 18px 36px rgba(194, 65, 12, 0.28);
+      cursor: pointer;
+      z-index: 20;
+      animation: spin 2.6s linear infinite;
+      will-change: transform;
+    }
+
+    .signature-button:hover {
+      filter: brightness(1.08);
+    }
+
     .stripe {
       position: absolute;
       left: 0;
@@ -168,6 +194,15 @@
       to { transform: translate(20px, 16px) scale(1.06); }
     }
 
+    @keyframes spin {
+      from {
+        transform: translateX(-50%) rotate(0deg);
+      }
+      to {
+        transform: translateX(-50%) rotate(360deg);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation: none !important;
@@ -185,9 +220,9 @@
       <h1 class="brand">Tiger <span class="accent">Hacks 1.0</span></h1>
       <p class="tagline">Build. Break. Ship.</p>
       <a class="cta" href="#">Coming soon by Luis</a>
-      <a cladss="cta" href="#">Coming soon by Alvaro</a>
     </div>
 
+    <button class="signature-button" type="button" aria-label="Luis">Luis</button>
     <div class="stripe" aria-hidden="true"></div>
   </main>
 </body>
