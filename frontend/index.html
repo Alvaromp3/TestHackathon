@@ -136,6 +136,34 @@
       outline-offset: 3px;
     }
 
+    .name-button {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: clamp(1rem, 4vw, 3rem);
+      transform: translateY(-50%);
+      padding: 0.9rem 1.5rem;
+      border: 1px solid rgba(28, 20, 16, 0.2);
+      border-radius: 999px;
+      background: rgba(255, 250, 245, 0.75);
+      color: var(--ink);
+      font: inherit;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .name-button:hover {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .name-button:focus-visible {
+      outline: 2px solid var(--flame);
+      outline-offset: 3px;
+    }
+
     .stripe {
       position: absolute;
       left: 0;
@@ -180,6 +208,8 @@
   <main class="scene">
     <div class="glow glow--a" aria-hidden="true"></div>
     <div class="glow glow--b" aria-hidden="true"></div>
+
+    <button class="name-button" type="button">Jaish</button>
 
     <div class="content">
       <h1 class="brand">Tiger <span class="accent">Hacks 1.0</span></h1>
