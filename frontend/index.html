@@ -136,6 +136,34 @@
       outline-offset: 3px;
     }
 
+    .author-tag {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1rem;
+      border: 1px solid rgba(28, 20, 16, 0.2);
+      border-radius: 999px;
+      background: rgba(255, 250, 245, 0.7);
+      backdrop-filter: blur(6px);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(28, 20, 16, 0.82);
+      box-shadow: 0 8px 20px rgba(28, 20, 16, 0.08);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .author-tag:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 250, 245, 0.9);
+    }
+
     .signature-button {
       position: fixed;
       left: 50%;
@@ -213,6 +241,7 @@
 </head>
 <body>
   <main class="scene">
+    <button class="author-tag" type="button">Matt</button>
     <div class="glow glow--a" aria-hidden="true"></div>
     <div class="glow glow--b" aria-hidden="true"></div>
 
